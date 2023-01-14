@@ -36,20 +36,26 @@ const user=await Users.findOne({where:{email:email}});
 console.log(user);
 
 if(user==null){
-    res.json({message:"Username or email was not found"});
+    res.send({message:"Username or email was not found"});
 }
 
 
 bcrypt.compare(password,user.password).then((match)=>{
-    if(!match) res.json({message:"Wrong username and password combination",status:301});
+    try{
+    if(!match){res.send({message:"Wrong username and password combination",status:301});
+console.log("logging in failed,try again!")
+}
     const accessToken=sign({username:user.username,id:user.id},"cYbeR-SecUrity-bl0g");
     
     res.send({accessToken:accessToken,
-        message:"Logged in successfully",
+        message:"Logged in successfully",username:user.username,
     status:200});
     console.log(accessToken);
  console.log("logged in successfully.");
-
+    }
+    catch(err){
+        console.log("logging in failed,try again!");
+    }
 })
 
 });

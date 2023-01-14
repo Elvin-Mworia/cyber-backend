@@ -13,15 +13,25 @@ module.exports=(sequelize,DataTypes )=>{
         price:{
             type:DataTypes.INTEGER,
             allowNull:false,
-            autoGenerate:true, 
+            
         },
         image:{
-            type:DataTypes.BLOB,
+            type:DataTypes.STRING,
             allowNull:true
+        },
+        description:{
+            type:DataTypes.STRING,
+            allowNull:false
+
         },
        url:{
            type:DataTypes.STRING,
            allowNull:true
+       },
+       cartstate:{
+           type:DataTypes.BOOLEAN,
+           defaultValue:false,
+           autoGenerate:true
        }
        
     });

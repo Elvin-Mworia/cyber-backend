@@ -1,5 +1,5 @@
 module.exports=(sequelize,DataTypes )=>{
-    const comment=sequelize.define("Comment",{
+    const Comment=sequelize.define("Comment",{
        
         comment:{
             type:DataTypes.STRING,
@@ -9,18 +9,18 @@ module.exports=(sequelize,DataTypes )=>{
 type:DataTypes.STRING,
 allowNull:false
         },
-        postid:{
-            type:DataTypes.STRING,
-            allowNull:false
-        }
-        ,
       id:  {
           type:DataTypes.UUID,
           primaryKey:true,
-          autoGenerate:true
+          defaultValue:DataTypes.UUIDV4
+
+        },
+        PostId:{
+            type:DataTypes.STRING,
+            allowNull:false
 
         }
 
     });
-   return comment;
+   return Comment;
   }

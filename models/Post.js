@@ -13,7 +13,7 @@ module.exports=(sequelize,DataTypes )=>{
           type:DataTypes.STRING,
           allowNull:false,
       },
-      image:{type:DataTypes.BLOB, allowNull:true
+      image:{type:DataTypes.STRING, allowNull:true
      }
       ,
       username:{
@@ -43,7 +43,7 @@ module.exports=(sequelize,DataTypes )=>{
       
   });
 //   Post.associate=(models)=>{
-//     Post.hasMany(models.comment,{onDelete:"cascade"});
+//     Post.hasMany(models.Comment,{onDelete:"cascade"});
 // };
 
  return Post;
