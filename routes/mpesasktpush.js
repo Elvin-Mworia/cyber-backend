@@ -22,7 +22,7 @@ const cred={
      certificatePath:"null"
 
 }
-const Mpesa=new mpesa(cred,"sandbox");
+const Mpesa=new mpesa(cred,"live");
 
 router.post("/mpesastk-push",(req,res)=>{
 const amount=req.body.amount;
